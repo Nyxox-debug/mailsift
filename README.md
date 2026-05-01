@@ -8,3 +8,5 @@ This is a Spam/Ham email classifier that uses a model trained on the [SpamAssass
 
 - First, run `train_classifier.ipynb`
 - Then, run `export_onnx.ipynb`
+
+> University Project

@@ -109,7 +109,8 @@
             <div>
                 <h1>MailSift</h1>
                 <p class="tagline">
-                    spam / ham classifier — runs entirely in your browser via ONNX
+                    spam / ham classifier — runs entirely in your browser via
+                    ONNX
                 </p>
             </div>
         </div>
@@ -120,7 +121,8 @@
             class:err={!!error && !model}
         >
             <span class="dot"></span>
-            {#if loading}loading model…{:else if model}model ready{:else if error}load failed{:else}waiting…{/if}
+            {#if loading}loading model…{:else if model}model ready{:else if error}load
+                failed{:else}waiting…{/if}
         </div>
     </header>
 
@@ -161,12 +163,13 @@
                 onclick={classify}
                 disabled={classifying || !emailText.trim() || !model}
             >
-                {#if classifying}<span class="spinner"></span> classifying…{:else}classify →{/if}
+                {#if classifying}<span class="spinner"></span> classifying…{:else}classify
+                    →{/if}
             </button>
             {#if error}<div class="error-box">// error: {error}</div>{/if}
             <div class="note">
-                <span class="note-icon">⚡</span>
-                inference runs in WebAssembly — no server, no data leaves your device.
+                inference runs in WebAssembly — no server, no data leaves your
+                device.
             </div>
         </section>
 
@@ -179,7 +182,7 @@
                 >
                     <div class="verdict">
                         <span class="verdict-icon"
-                            >{result.label === "spam" ? "🚫" : "✅"}</span
+                            >{result.label === "spam" ? "x" : "✔"}</span
                         >
                         <div>
                             <div class="verdict-label">
@@ -347,7 +350,7 @@
 
     .tagline {
         font-size: 0.65rem;
-        color: #555;     /* was #2e2e2e — invisible */
+        color: #555; /* was #2e2e2e — invisible */
         margin-top: 4px;
         font-weight: 300;
     }
@@ -361,7 +364,7 @@
         border-radius: 2px;
         background: #0d0d0d;
         border: 1px solid #141414;
-        color: #555;     /* was #333 — too dark */
+        color: #555; /* was #333 — too dark */
         font-family: "JetBrains Mono", monospace;
     }
 
@@ -404,13 +407,17 @@
     }
 
     @keyframes slide {
-        0% { transform: translateX(-100%); }
-        100% { transform: translateX(300%); }
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(300%);
+        }
     }
 
     .loading-hint {
         font-size: 0.65rem;
-        color: #555;     /* was #333 */
+        color: #555; /* was #333 */
         margin-bottom: 1.5rem;
         text-align: center;
         font-style: italic;
@@ -419,19 +426,26 @@
     /* ── Layout ── */
     main {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
         gap: 1.25rem;
     }
 
-    @media (max-width: 640px) {   /* tightened from 720px */
-        main { grid-template-columns: 1fr; }
-        .shell { padding: 1.25rem 1rem 3rem; }
-        h1 { font-size: 1.1rem; }
+    @media (max-width: 680px) {
+        .shell {
+            padding: 1.25rem 1rem 3rem;
+        }
+        h1 {
+            font-size: 1.1rem;
+        }
     }
 
     @media (max-width: 420px) {
-        .shell { padding: 1rem 0.75rem 2.5rem; }
-        .tagline { display: none; }
+        .shell {
+            padding: 1rem 0.75rem 2.5rem;
+        }
+        .tagline {
+            display: none;
+        }
     }
 
     /* ── Cards ── */
@@ -440,6 +454,7 @@
     .result-card,
     .result-placeholder {
         background: #0d0d0d;
+        min-width: 0;
         border: 1px solid #1e1e1e;
         border-radius: 4px;
         overflow: hidden;
@@ -453,7 +468,7 @@
         border-bottom: 1px solid #1a1a1a;
         font-size: 0.63rem;
         font-weight: 500;
-        color: #666;     /* was #2e2e2e — invisible */
+        color: #666; /* was #2e2e2e — invisible */
         letter-spacing: 0.08em;
     }
 
@@ -461,14 +476,16 @@
         background: none;
         border: none;
         font-size: 0.63rem;
-        color: #555;     /* was #2a2a2a — invisible */
+        color: #555; /* was #2a2a2a — invisible */
         cursor: pointer;
         padding: 2px 6px;
         font-family: "JetBrains Mono", monospace;
         transition: color 0.15s;
     }
 
-    .ghost-btn:hover { color: #aaa; }
+    .ghost-btn:hover {
+        color: #aaa;
+    }
 
     /* ── Textarea ── */
     textarea {
@@ -477,14 +494,18 @@
         border: none;
         outline: none;
         resize: none;
+        max-width: 100%;
+        min-width: 0;
         font-family: "JetBrains Mono", monospace;
         font-size: 0.76rem;
         line-height: 1.75;
-        color: #c0c0c0;  /* was #aaaaaa — slightly improved */
+        color: #c0c0c0; /* was #aaaaaa — slightly improved */
         padding: 0.9rem;
     }
 
-    textarea::placeholder { color: #3a3a3a; }  /* was #222 — barely visible */
+    textarea::placeholder {
+        color: #3a3a3a;
+    } /* was #222 — barely visible */
 
     textarea:disabled {
         opacity: 0.3;
@@ -503,7 +524,7 @@
 
     .samples-label {
         font-size: 0.6rem;
-        color: #555;     /* was #252525 — invisible */
+        color: #555; /* was #252525 — invisible */
         margin-right: 2px;
     }
 
@@ -513,10 +534,12 @@
         border-radius: 2px;
         background: #111;
         border: 1px solid #222;
-        color: #666;     /* was #383838 — too dark */
+        color: #666; /* was #383838 — too dark */
         cursor: pointer;
         font-family: "JetBrains Mono", monospace;
-        transition: color 0.12s, border-color 0.12s;
+        transition:
+            color 0.12s,
+            border-color 0.12s;
     }
 
     .sample-chip:hover:not(:disabled) {
@@ -531,9 +554,10 @@
 
     /* ── Classify button ── */
     .classify-btn {
-        width: calc(100% - 1.8rem);
-        margin: 0.65rem 0.9rem;
-        padding: 0.6rem;
+        width: 100%;
+        margin: 0;
+        padding: 0.6rem 0.9rem;
+        box-sizing: border-box;
         border-radius: 2px;
         background: #ffffff;
         color: #000000;
@@ -547,10 +571,14 @@
         justify-content: center;
         gap: 8px;
         letter-spacing: 0.04em;
-        transition: background 0.15s, opacity 0.15s;
+        transition:
+            background 0.15s,
+            opacity 0.15s;
     }
 
-    .classify-btn:hover:not(:disabled) { background: #e8e8e8; }
+    .classify-btn:hover:not(:disabled) {
+        background: #e8e8e8;
+    }
 
     .classify-btn:disabled {
         opacity: 0.2;
@@ -567,7 +595,11 @@
         flex-shrink: 0;
     }
 
-    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
 
     /* ── Error ── */
     .error-box {
@@ -589,7 +621,7 @@
         padding: 0.55rem 0.9rem;
         border-top: 1px solid #161616;
         font-size: 0.6rem;
-        color: #555;     /* was #252525 — invisible */
+        color: #555; /* was #252525 — invisible */
     }
 
     /* ── Right col ── */
@@ -603,25 +635,32 @@
     .result-placeholder {
         padding: 2.5rem 1.25rem;
         text-align: center;
-        color: #555;     /* was #252525 */
+        color: #555; /* was #252525 */
         font-size: 0.75rem;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 8px;
         font-style: italic;
-        border-style: dashed;  /* dashed makes the empty state feel intentional */
+        border-style: dashed; /* dashed makes the empty state feel intentional */
     }
 
-    .result-placeholder strong { color: #888; font-style: normal; }  /* was #333 */
+    .result-placeholder strong {
+        color: #888;
+        font-style: normal;
+    } /* was #333 */
 
     /* ── Result card ── */
     .result-card {
         padding: 1.1rem 1rem;
     }
 
-    .result-card.spam { border-color: #2e1010; }
-    .result-card.ham  { border-color: #0f2e18; }
+    .result-card.spam {
+        border-color: #2e1010;
+    }
+    .result-card.ham {
+        border-color: #0f2e18;
+    }
 
     .verdict {
         display: flex;
@@ -645,12 +684,16 @@
         letter-spacing: 0.02em;
     }
 
-    .result-card.ham  .verdict-label { color: #22c55e; }
-    .result-card.spam .verdict-label { color: #ef4444; }
+    .result-card.ham .verdict-label {
+        color: #22c55e;
+    }
+    .result-card.spam .verdict-label {
+        color: #ef4444;
+    }
 
     .verdict-conf {
         font-size: 0.63rem;
-        color: #666;     /* was #303030 — invisible */
+        color: #666; /* was #303030 — invisible */
         margin-top: 3px;
     }
 
@@ -670,7 +713,7 @@
     .bar-lbl {
         width: 34px;
         font-size: 0.63rem;
-        color: #666;     /* was #383838 — too dark */
+        color: #666; /* was #383838 — too dark */
         text-align: right;
     }
 
@@ -688,24 +731,32 @@
         transition: width 0.4s cubic-bezier(0.22, 0.68, 0, 1.2);
     }
 
-    .bar-fill.green { background: #22c55e; }
-    .bar-fill.red   { background: #ef4444; }
+    .bar-fill.green {
+        background: #22c55e;
+    }
+    .bar-fill.red {
+        background: #ef4444;
+    }
 
     .bar-val {
         width: 34px;
         font-size: 0.63rem;
-        color: #888;     /* was #383838 — too dark */
+        color: #888; /* was #383838 — too dark */
     }
 
     /* ── History ── */
-    .history-list { list-style: none; }
+    .history-list {
+        list-style: none;
+    }
 
     .history-item {
         padding: 0.65rem 0.9rem;
         border-bottom: 1px solid #141414;
     }
 
-    .history-item:last-child { border-bottom: none; }
+    .history-item:last-child {
+        border-bottom: none;
+    }
 
     .hi-top {
         display: flex;
@@ -740,14 +791,15 @@
 
     .hi-conf {
         font-size: 0.6rem;
-        color: #555;     /* was #2a2a2a — invisible */
+        color: #555; /* was #2a2a2a — invisible */
         flex-shrink: 0;
     }
 
     .hi-preview {
         font-size: 0.66rem;
-        color: #555;     /* was #282828 — invisible */
+        color: #555; /* was #282828 — invisible */
         white-space: nowrap;
+        max-width: 0;
         overflow: hidden;
         text-overflow: ellipsis;
         min-width: 0;
@@ -759,7 +811,7 @@
         align-items: center;
         gap: 6px;
         font-size: 0.6rem;
-        color: #555;     /* was #252525 */
+        color: #555; /* was #252525 */
     }
 
     .fb-btn {
@@ -773,18 +825,30 @@
         transition: background 0.12s;
     }
 
-    .fb-btn.ham  { border-color: #1a3a22; color: #22c55e; }
-    .fb-btn.ham:hover  { background: #050f08; }
-    .fb-btn.spam { border-color: #3a1515; color: #f87171; }
-    .fb-btn.spam:hover { background: #0f0505; }
+    .fb-btn.ham {
+        border-color: #1a3a22;
+        color: #22c55e;
+    }
+    .fb-btn.ham:hover {
+        background: #050f08;
+    }
+    .fb-btn.spam {
+        border-color: #3a1515;
+        color: #f87171;
+    }
+    .fb-btn.spam:hover {
+        background: #0f0505;
+    }
 
     .hi-corrected {
         font-size: 0.63rem;
-        color: #555;     /* was #2e2e2e */
+        color: #555; /* was #2e2e2e */
         font-style: italic;
     }
 
-    .hi-corrected strong { color: #888; }  /* was #555 — still visible now */
+    .hi-corrected strong {
+        color: #888;
+    } /* was #555 — still visible now */
 
     /* ── Terminal prompt decoration ── */
     .prompt-line {
@@ -793,7 +857,7 @@
         gap: 4px;
         padding: 0.5rem 0.9rem;
         font-size: 0.63rem;
-        color: #444;     /* was #222 */
+        color: #444; /* was #222 */
         border-top: 1px solid #141414;
     }
 
@@ -807,7 +871,12 @@
     }
 
     @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
+        0%,
+        100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0;
+        }
     }
 </style>

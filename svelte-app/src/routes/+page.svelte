@@ -293,10 +293,10 @@
 
     :global(body) {
         font-family: "JetBrains Mono", monospace;
-        background: #000000;
-        color: #e0e0e0;
+        background: #0a0a0a;
+        color: #d4d4d4;
         min-height: 100vh;
-        font-size: 14px;
+        font-size: 13px;
         line-height: 1.6;
     }
 
@@ -313,7 +313,7 @@
         justify-content: space-between;
         margin-bottom: 2rem;
         padding-bottom: 1.25rem;
-        border-bottom: 1px solid #141414;
+        border-bottom: 1px solid #1e1e1e;
         flex-wrap: wrap;
         gap: 1rem;
     }
@@ -321,25 +321,24 @@
     .logo {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: 0.85rem;
     }
 
     .icon-wrap {
-        font-size: 1rem;
-        background: #0a0a0a;
-        border: 1px solid #1e1e1e;
+        font-size: 0.9rem;
+        background: #111;
+        border: 1px solid #222;
         border-radius: 4px;
-        width: 44px;
-        height: 44px;
+        width: 42px;
+        height: 42px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: "JetBrains Mono", monospace;
     }
 
     h1 {
         font-family: "JetBrains Mono", monospace;
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         font-weight: 600;
         letter-spacing: 0.02em;
         color: #ffffff;
@@ -347,22 +346,22 @@
     }
 
     .tagline {
-        font-size: 0.68rem;
-        color: #2e2e2e;
+        font-size: 0.65rem;
+        color: #555;     /* was #2e2e2e — invisible */
         margin-top: 4px;
         font-weight: 300;
     }
 
     .model-badge {
-        font-size: 0.68rem;
+        font-size: 0.65rem;
         display: flex;
         align-items: center;
         gap: 6px;
         padding: 5px 12px;
         border-radius: 2px;
-        background: #080808;
+        background: #0d0d0d;
         border: 1px solid #141414;
-        color: #333;
+        color: #555;     /* was #333 — too dark */
         font-family: "JetBrains Mono", monospace;
     }
 
@@ -410,8 +409,8 @@
     }
 
     .loading-hint {
-        font-size: 0.68rem;
-        color: #333;
+        font-size: 0.65rem;
+        color: #555;     /* was #333 */
         margin-bottom: 1.5rem;
         text-align: center;
         font-style: italic;
@@ -424,7 +423,7 @@
         gap: 1.25rem;
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 640px) {   /* tightened from 720px */
         main { grid-template-columns: 1fr; }
         .shell { padding: 1.25rem 1rem 3rem; }
         h1 { font-size: 1.1rem; }
@@ -440,8 +439,8 @@
     .history-card,
     .result-card,
     .result-placeholder {
-        background: #080808;
-        border: 1px solid #141414;
+        background: #0d0d0d;
+        border: 1px solid #1e1e1e;
         border-radius: 4px;
         overflow: hidden;
     }
@@ -451,25 +450,25 @@
         align-items: center;
         justify-content: space-between;
         padding: 0.6rem 0.9rem;
-        border-bottom: 1px solid #111;
-        font-size: 0.65rem;
+        border-bottom: 1px solid #1a1a1a;
+        font-size: 0.63rem;
         font-weight: 500;
-        color: #2e2e2e;
+        color: #666;     /* was #2e2e2e — invisible */
         letter-spacing: 0.08em;
     }
 
     .ghost-btn {
         background: none;
         border: none;
-        font-size: 0.65rem;
-        color: #2a2a2a;
+        font-size: 0.63rem;
+        color: #555;     /* was #2a2a2a — invisible */
         cursor: pointer;
         padding: 2px 6px;
         font-family: "JetBrains Mono", monospace;
         transition: color 0.15s;
     }
 
-    .ghost-btn:hover { color: #888; }
+    .ghost-btn:hover { color: #aaa; }
 
     /* ── Textarea ── */
     textarea {
@@ -479,13 +478,13 @@
         outline: none;
         resize: none;
         font-family: "JetBrains Mono", monospace;
-        font-size: 0.78rem;
+        font-size: 0.76rem;
         line-height: 1.75;
-        color: #aaaaaa;
+        color: #c0c0c0;  /* was #aaaaaa — slightly improved */
         padding: 0.9rem;
     }
 
-    textarea::placeholder { color: #222; }
+    textarea::placeholder { color: #3a3a3a; }  /* was #222 — barely visible */
 
     textarea:disabled {
         opacity: 0.3;
@@ -499,30 +498,30 @@
         align-items: center;
         gap: 5px;
         padding: 0.5rem 0.9rem;
-        border-top: 1px solid #0f0f0f;
+        border-top: 1px solid #161616;
     }
 
     .samples-label {
-        font-size: 0.62rem;
-        color: #252525;
+        font-size: 0.6rem;
+        color: #555;     /* was #252525 — invisible */
         margin-right: 2px;
     }
 
     .sample-chip {
-        font-size: 0.62rem;
+        font-size: 0.6rem;
         padding: 2px 8px;
         border-radius: 2px;
-        background: #0d0d0d;
-        border: 1px solid #1a1a1a;
-        color: #383838;
+        background: #111;
+        border: 1px solid #222;
+        color: #666;     /* was #383838 — too dark */
         cursor: pointer;
         font-family: "JetBrains Mono", monospace;
         transition: color 0.12s, border-color 0.12s;
     }
 
     .sample-chip:hover:not(:disabled) {
-        border-color: #333;
-        color: #aaa;
+        border-color: #3a3a3a;
+        color: #bbb;
     }
 
     .sample-chip:disabled {
@@ -588,9 +587,9 @@
         align-items: center;
         gap: 6px;
         padding: 0.55rem 0.9rem;
-        border-top: 1px solid #0f0f0f;
-        font-size: 0.62rem;
-        color: #252525;
+        border-top: 1px solid #161616;
+        font-size: 0.6rem;
+        color: #555;     /* was #252525 — invisible */
     }
 
     /* ── Right col ── */
@@ -604,16 +603,17 @@
     .result-placeholder {
         padding: 2.5rem 1.25rem;
         text-align: center;
-        color: #252525;
+        color: #555;     /* was #252525 */
         font-size: 0.75rem;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 8px;
         font-style: italic;
+        border-style: dashed;  /* dashed makes the empty state feel intentional */
     }
 
-    .result-placeholder strong { color: #333; font-style: normal; }
+    .result-placeholder strong { color: #888; font-style: normal; }  /* was #333 */
 
     /* ── Result card ── */
     .result-card {
@@ -621,7 +621,7 @@
     }
 
     .result-card.spam { border-color: #2e1010; }
-    .result-card.ham  { border-color: #102e18; }
+    .result-card.ham  { border-color: #0f2e18; }
 
     .verdict {
         display: flex;
@@ -631,15 +631,15 @@
     }
 
     .verdict-icon {
-        font-size: 1rem;
-        background: #0d0d0d;
-        border: 1px solid #1a1a1a;
+        font-size: 0.9rem;
+        background: #111;
+        border: 1px solid #1e1e1e;
         padding: 0.45rem 0.55rem;
         border-radius: 2px;
     }
 
     .verdict-label {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         font-weight: 600;
         color: #ffffff;
         letter-spacing: 0.02em;
@@ -649,8 +649,8 @@
     .result-card.spam .verdict-label { color: #ef4444; }
 
     .verdict-conf {
-        font-size: 0.65rem;
-        color: #303030;
+        font-size: 0.63rem;
+        color: #666;     /* was #303030 — invisible */
         margin-top: 3px;
     }
 
@@ -669,15 +669,15 @@
 
     .bar-lbl {
         width: 34px;
-        font-size: 0.65rem;
-        color: #383838;
+        font-size: 0.63rem;
+        color: #666;     /* was #383838 — too dark */
         text-align: right;
     }
 
     .bar-track {
         flex: 1;
         height: 3px;
-        background: #111;
+        background: #1a1a1a;
         border-radius: 999px;
         overflow: hidden;
     }
@@ -693,8 +693,8 @@
 
     .bar-val {
         width: 34px;
-        font-size: 0.65rem;
-        color: #383838;
+        font-size: 0.63rem;
+        color: #888;     /* was #383838 — too dark */
     }
 
     /* ── History ── */
@@ -702,7 +702,7 @@
 
     .history-item {
         padding: 0.65rem 0.9rem;
-        border-bottom: 1px solid #0e0e0e;
+        border-bottom: 1px solid #141414;
     }
 
     .history-item:last-child { border-bottom: none; }
@@ -710,14 +710,15 @@
     .hi-top {
         display: flex;
         align-items: baseline;
-        gap: 7px;
+        flex-wrap: wrap;
+        gap: 6px;
         margin-bottom: 5px;
     }
 
     .hi-badge {
-        font-size: 0.58rem;
+        font-size: 0.57rem;
         font-weight: 600;
-        padding: 1px 7px;
+        padding: 1px 6px;
         border-radius: 1px;
         text-transform: uppercase;
         letter-spacing: 0.07em;
@@ -738,60 +739,52 @@
     }
 
     .hi-conf {
-        font-size: 0.62rem;
-        color: #2a2a2a;
+        font-size: 0.6rem;
+        color: #555;     /* was #2a2a2a — invisible */
         flex-shrink: 0;
     }
 
     .hi-preview {
-        font-size: 0.68rem;
-        color: #282828;
+        font-size: 0.66rem;
+        color: #555;     /* was #282828 — invisible */
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         min-width: 0;
+        flex: 1;
     }
 
     .hi-feedback {
         display: flex;
         align-items: center;
         gap: 6px;
-        font-size: 0.62rem;
-        color: #252525;
+        font-size: 0.6rem;
+        color: #555;     /* was #252525 */
     }
 
     .fb-btn {
         padding: 1px 9px;
         border-radius: 1px;
         border: 1px solid;
-        font-size: 0.62rem;
+        font-size: 0.6rem;
         cursor: pointer;
         background: transparent;
         font-family: "JetBrains Mono", monospace;
         transition: background 0.12s;
     }
 
-    .fb-btn.ham {
-        border-color: #1a3a22;
-        color: #22c55e;
-    }
-
-    .fb-btn.ham:hover { background: #050f08; }
-
-    .fb-btn.spam {
-        border-color: #3a1515;
-        color: #f87171;
-    }
-
+    .fb-btn.ham  { border-color: #1a3a22; color: #22c55e; }
+    .fb-btn.ham:hover  { background: #050f08; }
+    .fb-btn.spam { border-color: #3a1515; color: #f87171; }
     .fb-btn.spam:hover { background: #0f0505; }
 
     .hi-corrected {
-        font-size: 0.65rem;
-        color: #2e2e2e;
+        font-size: 0.63rem;
+        color: #555;     /* was #2e2e2e */
         font-style: italic;
     }
 
-    .hi-corrected strong { color: #555; }
+    .hi-corrected strong { color: #888; }  /* was #555 — still visible now */
 
     /* ── Terminal prompt decoration ── */
     .prompt-line {
@@ -799,16 +792,16 @@
         align-items: center;
         gap: 4px;
         padding: 0.5rem 0.9rem;
-        font-size: 0.65rem;
-        color: #222;
-        border-top: 1px solid #0e0e0e;
+        font-size: 0.63rem;
+        color: #444;     /* was #222 */
+        border-top: 1px solid #141414;
     }
 
     .cursor {
         display: inline-block;
         width: 6px;
         height: 0.75em;
-        background: #333;
+        background: #555;
         animation: blink 1s step-end infinite;
         vertical-align: middle;
     }

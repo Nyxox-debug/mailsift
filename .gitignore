@@ -1,0 +1,47 @@
+# ======================
+# Python / ML
+# ======================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+venv/
+.env
+
+.ipynb_checkpoints/
+
+# model artifacts (optional but recommended)
+*.joblib
+*.h5
+
+# logs
+*.log
+
+# ======================
+# Jupyter
+# ======================
+*.ipynb_checkpoints/
+
+# ======================
+# Svelte / Node
+# ======================
+svelte-app/node_modules/
+svelte-app/.svelte-kit/
+svelte-app/build/
+svelte-app/dist/
+
+# env files
+svelte-app/.env
+svelte-app/.env.*
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ======================
+# OS
+# ======================
+.DS_Store
+Thumbs.db

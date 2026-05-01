@@ -1,2 +1,2 @@
-<img src="as/m.png" width="40" />
+<img src="as/m.png" width="200" />
 <!-- ![Mail](as/m.png) -->
